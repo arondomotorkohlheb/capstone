@@ -1,3 +1,2 @@
 # capstone
-repository for the university AI capstone project
-here we can elaborate on our coding contribution and structure of the codes
+The objective of the project is to study flow compression and generation applied to a model of 2D turbulence (called the Kolmogorov flow). The objective is to use a specific neural network, called an autoencoder (AE) to reduce the dimension of the 2D flow down to a few representative dimensions while ensuring the ability to reconstruct the original flow field with a given level of accuracy. The performance of the autoencoder will be compared to a traditional method called Proper Orthogonal Decomposition (POD). In addition, the ability of the decoder-part of the AE to generate physical flow data will be investigated.
