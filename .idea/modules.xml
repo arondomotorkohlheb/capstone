@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/capstone-ai-ae.iml" filepath="$PROJECT_DIR$/.idea/capstone-ai-ae.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/capstone.iml" filepath="$PROJECT_DIR$/.idea/capstone.iml" />
->>>>>>> 8761ee2133b1c14915e3c21542abadcefae09e73
     </modules>
   </component>
 </project>
