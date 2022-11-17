@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Capstone-AI-AE
 
 Result of the Capstone AI Project related to Deep Learning-based Dimensionality Reduction (2021-2022).
@@ -92,3 +93,7 @@ For open source projects, say how it is licensed.
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
 --->
+=======
+# capstone
+The objective of the project is to study flow compression and generation applied to a model of 2D turbulence (called the Kolmogorov flow). The objective is to use a specific neural network, called an autoencoder (AE) to reduce the dimension of the 2D flow down to a few representative dimensions while ensuring the ability to reconstruct the original flow field with a given level of accuracy. The performance of the autoencoder will be compared to a traditional method called Proper Orthogonal Decomposition (POD). In addition, the ability of the decoder-part of the AE to generate physical flow data will be investigated.
+>>>>>>> 8761ee2133b1c14915e3c21542abadcefae09e73
