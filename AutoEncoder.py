@@ -1,8 +1,3 @@
-from google.colab import drive
-
-# Mount data files from your google drive to be able to use them
-drive.mount('/content/drive')
-
 # Import Libraries
 import numpy as np
 import tensorflow as tf
