@@ -8,6 +8,9 @@ from tensorflow.keras.layers import Input, Dense, Conv2D, MaxPool2D, AveragePool
     BatchNormalization, Conv2DTranspose, Flatten, Reshape
 from tensorflow.keras.optimizers import Adam
 
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+
 # -------------------------------------------------------------------------------------------------
 # FILE SELECTION
 Re = 20.0  # choose between Re= 20.0, 30.0, 40.0, 50.0, 60.0, 100.0, 180.0
@@ -29,8 +32,8 @@ dimensions = [8, 4, 2, 1]  # Specify the dimensions for each encoding layer (dim
 # Decoding layer is mirror of encoding layer
 
 activation_function = 'tanh'  # specify which activation function to use
-learning_rate = 0.001  # change to 0.0001 if using a latent space dimension of 32 and 64
-number_epochs = 1000  # set high, early stopping function will stop iterations if it sees no visible change after 'patience_early_stopping' number of epochs
+learning_rate = 0.1  # change to 0.0001 if using a latent space dimension of 32 and 64
+number_epochs = 10  # set high, early stopping function will stop iterations if it sees no visible change after 'patience_early_stopping' number of epochs
 patience_early_stopping = 20  # how many epochs with no significant change before AE stops training
 pooling = 'max'  # set to 'max' or 'average'
 if pooling == 'max':
