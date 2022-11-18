@@ -18,7 +18,7 @@ if Re == 20.0 or Re == 30.0 or Re == 40.0:
 else:
     T = 2000
 
-path_folder = '/capstone/Final_Product'  # path to folder in which flow data is situated
+path_folder = 'Final_Product/'  # path to folder in which flow data is situated
 path = path_folder + f'Kolmogorov_Re{Re}_T{T}_DT01.h5'
 
 # -------------------------------------------------------------------------------------------------
@@ -50,6 +50,7 @@ u_all[:, :, :, 0] = np.array(hf.get('u_refined'))
 u_all = np.transpose(u_all, [2, 0, 1, 3])
 hf.close()
 print(u_all.shape)
+print('Read Dataset')
 
 # normalize data
 u_min = np.amin(u_all[:, :, :, 0])
@@ -59,6 +60,7 @@ if Nu == 2:
     v_min = np.amin(u_all[:, :, :, 1])
     v_max = np.amax(u_all[:, :, :, 1])
     u_all[:, :, :, 1] = (u_all[:, :, :, 1] - v_min) / (v_max - v_min)
+print('Normalized Data')
 
 # visualization of the dataset
 fig = plt.figure()
@@ -67,6 +69,7 @@ ax.contourf(u_all[50, :, :, 0])
 # ax2 = fig.add_subplot(122)
 # ax2.contourf(u_all[0,:,:,1])
 plt.show()
+print('Showed data')
 
 # -------------------------------------------------------------------------------------------------
 # PREPARE DATASET
@@ -76,6 +79,7 @@ test_ratio = int(np.round(0.95 * len(u_all)))
 u_train = u_all[:val_ratio, :, :, :].astype('float32')
 u_val = u_all[val_ratio:test_ratio, :, :, :].astype('float32')
 u_test = u_all[test_ratio:, :, :, :].astype('float32')
+print('Prepared Dataset')
 
 # -------------------------------------------------------------------------------------------------
 # CREATING NETWORK
@@ -104,6 +108,7 @@ decoded = Conv2DTranspose(Nu, (3, 3), activation='linear', padding='same')(x)
 
 autoencoder = tf.keras.models.Model(input_img, decoded)
 encoder = tf.keras.models.Model(input_img, encoded)
+print('Encoder Created')
 
 # definition of the decoder
 encoded_input = Input(shape=(1, 1, encoded.shape[3]))
@@ -113,6 +118,7 @@ for i in range(6):
 
 decoder = tf.keras.models.Model(encoded_input, deco)
 
+print('Decoder Created')
 print(encoder.summary())
 print(decoder.summary())
 print(autoencoder.summary())
@@ -145,7 +151,7 @@ plt.xlabel("Epoch")
 plt.ylabel("Loss")
 
 plt.show()
-
+print('Trained Model')
 # -------------------------------------------------------------------------------------------------
 # VISUALIZATION OF PREDICTION
 y_nn = autoencoder.predict(u_test[0:1, :, :, :])
